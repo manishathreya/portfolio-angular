@@ -1,0 +1,36 @@
+<app-section-title
+  command="./contact.sh"
+  title="Let's Build Something Reliable"
+  subtitle="Open to full-stack and backend-focused roles — happy to talk architecture, Spring Boot, or Angular."
+></app-section-title>
+
+<div class="max-w-2xl rounded-xl border border-white/10 bg-panel/60 overflow-hidden">
+  <div class="flex items-center gap-2 px-5 py-3 border-b border-white/10 bg-white/[0.02]">
+    <span class="w-2.5 h-2.5 rounded-full bg-signal/70"></span>
+    <span class="w-2.5 h-2.5 rounded-full bg-wire/70"></span>
+    <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
+    <span class="ml-3 font-mono text-xs text-ink2">output</span>
+  </div>
+
+  <dl class="divide-y divide-white/5 font-mono text-sm">
+    <div *ngFor="let row of rows" class="flex items-center gap-4 px-5 py-4">
+      <dt class="flex items-center gap-2 w-28 shrink-0 text-ink2">
+        <app-icon [name]="row.icon" class="w-4 h-4"></app-icon>
+        {{ row.label }}
+      </dt>
+      <dd class="text-slate-200 truncate">
+        <a *ngIf="row.href" [href]="row.href" target="_blank" rel="noopener noreferrer" class="hover:text-signal transition-colors duration-200">
+          {{ row.value }}
+        </a>
+        <span *ngIf="!row.href">{{ row.value }}</span>
+      </dd>
+    </div>
+  </dl>
+</div>
+
+<a
+  [href]="'mailto:' + info.email"
+  class="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-signal text-ink font-body font-semibold text-sm hover:bg-signal-soft transition-colors duration-200"
+>
+  Say Hello
+</a>

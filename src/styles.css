@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-slate-100 font-body antialiased;
+}
+
+/* Scroll-reveal, driven by the RevealOnScrollDirective */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init,
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Slim, dark scrollbar to match the console theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
+::-webkit-scrollbar-thumb {
+  background: #263042;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #34405a;
+}
+
+::selection {
+  background: #f2a93b;
+  color: #0b0f17;
+}
+
+/* Faint schematic backdrop used behind section content */
+.grid-fade {
+  background-image: linear-gradient(rgba(70, 199, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 199, 184, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000 40%, transparent 100%);
+}

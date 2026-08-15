@@ -1,0 +1,17 @@
+<app-section-title
+  command="ls ./skills"
+  title="Skills &amp; Toolkit"
+  subtitle="Grouped the way I actually reach for them — backend, frontend, data, and the AI tools that speed everything up."
+></app-section-title>
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  <div
+    *ngFor="let group of categories"
+    class="rounded-xl border border-white/10 bg-panel/60 p-6 hover:border-wire/40 transition-colors duration-300"
+  >
+    <p class="font-mono text-xs tracking-widest uppercase text-wire">{{ group.category }}</p>
+    <div class="mt-4 flex flex-wrap -m-1">
+      <app-chip *ngFor="let skill of group.skills" [label]="skill"></app-chip>
+    </div>
+  </div>
+</div>

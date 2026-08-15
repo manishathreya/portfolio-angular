@@ -1,0 +1,21 @@
+<app-section-title
+  command="cat experience.log"
+  title="Work Experience"
+></app-section-title>
+
+<div class="space-y-10">
+  <div *ngFor="let job of entries" class="relative pl-8 border-l border-white/10">
+    <span class="absolute -left-[5px] top-1.5 w-[9px] h-[9px] rounded-full bg-signal"></span>
+
+    <p class="font-mono text-xs text-ink2">{{ job.duration }}</p>
+    <h3 class="mt-1 text-xl md:text-2xl font-display font-bold text-slate-50">{{ job.company }}</h3>
+    <p class="mt-1 text-wire font-body text-sm">{{ job.role }} · {{ job.location }}</p>
+
+    <ul class="mt-5 space-y-2.5">
+      <li *ngFor="let point of job.highlights" class="flex gap-3 text-slate-300 font-body text-sm leading-relaxed">
+        <span class="mt-2 w-1 h-1 rounded-full bg-wire shrink-0"></span>
+        <span>{{ point }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

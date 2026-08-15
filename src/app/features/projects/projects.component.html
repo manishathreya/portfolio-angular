@@ -1,0 +1,22 @@
+<app-section-title
+  command="./run projects.sh"
+  title="Selected Projects"
+></app-section-title>
+
+<div class="grid md:grid-cols-2 gap-5">
+  <article
+    *ngFor="let project of projects"
+    class="group rounded-xl border border-white/10 bg-panel/60 p-6 hover:border-signal/40 hover:-translate-y-1 transition-all duration-300"
+  >
+    <p class="font-mono text-xs text-ink2">// {{ project.name }}</p>
+    <h3 class="mt-1 text-xl font-display font-bold text-slate-50">{{ project.name }}</h3>
+    <p class="mt-1 text-wire font-body text-sm">{{ project.tagline }}</p>
+
+    <ul class="mt-4 space-y-2.5">
+      <li *ngFor="let point of project.highlights" class="flex gap-3 text-slate-300 font-body text-sm leading-relaxed">
+        <span class="mt-2 w-1 h-1 rounded-full bg-signal shrink-0"></span>
+        <span>{{ point }}</span>
+      </li>
+    </ul>
+  </article>
+</div>
